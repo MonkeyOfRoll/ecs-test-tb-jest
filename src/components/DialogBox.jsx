@@ -22,6 +22,7 @@ export default class DialogBox extends React.Component {
         label="Close"
         primary
         onClick={this.props.handleClose}
+        data-test-id={"close-dialog"}
       />,
     ];
     return (
