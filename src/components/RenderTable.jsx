@@ -5,7 +5,7 @@ import {
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
- 
+
 const array1 = [23, 50, 63, 90, 10, 30, 155, 23, 18];
 const array2 = [133, 60, 23, 92, 6, 7, 168, 16, 19];
 const array3 = [30, 43, 29, 10, 50, 40, 99, 51, 12];
@@ -49,14 +49,14 @@ export default class CustomTable extends Component {
             showRowHover={this.state.showRowHover}
             stripedRows={this.state.stripedRows}
           >
-          <TableRow>
-            { array1.map((item, index) => <TableRowColumn data-test-id={`array-item-1-${index}`} key={index}>{item}</TableRowColumn>)}  
+          <TableRow data-test-id={`table-row-1`}>
+            { array1.map((item, index) => <TableRowColumn data-test-id={`array-item-1-${index}`} key={index}>{item}</TableRowColumn>)}
           </TableRow>
-          <TableRow>
-            { array2.map((item, index) => <TableRowColumn data-test-id={`array-item-2-${index}`}  key={index}>{item}</TableRowColumn>)}  
+          <TableRow data-test-id={`table-row-2`}>
+            { array2.map((item, index) => <TableRowColumn data-test-id={`array-item-2-${index}`}  key={index}>{item}</TableRowColumn>)}
           </TableRow>
-          <TableRow>
-            { array3.map((item, index) => <TableRowColumn data-test-id={`array-item-3-${index}`}  key={index}>{item}</TableRowColumn>)}  
+          <TableRow data-test-id={`table-row-3`}>
+            { array3.map((item, index) => <TableRowColumn data-test-id={`array-item-3-${index}`}  key={index}>{item}</TableRowColumn>)}
           </TableRow>
         </TableBody>
       </Table>
