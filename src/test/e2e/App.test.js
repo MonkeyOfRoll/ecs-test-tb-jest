@@ -7,7 +7,7 @@ beforeAll(async () => {
   // launch browser
   browser = await puppeteer.launch({
     headless: false, // headless mode set to false so browser opens up with visual feedback
-    slowMo: 250, // how slow actions should be
+    slowMo: 50, // how slow actions should be, mimics user
   });
   // creates a new page in the opened browser
   page = await browser.newPage();
@@ -18,6 +18,7 @@ beforeAll(async () => {
   });
 });
 
+// function for determining index of array balancing point
 function BalancePointIndex(inputArray) {
   function BalancePoint(input) {
     let total = input.reduce((prev, cur) => prev + cur),
@@ -58,9 +59,10 @@ describe('Page Loads', () => {
 });
 
 
-describe('Click Challenge button', () => {
-  test('users can click challenge button', async () => {
+describe('Render Challenge', () => {
+  test('Users can click challenge button and Challenge Renders', async () => {
     await page.click('[data-test-id="render-challenge"]');
+    await page.waitForSelector('[data-test-id="challenge-section"]');
   }, 9000000);
 });
 
@@ -79,11 +81,9 @@ describe('SUCCESS FLOW: Calc answers, populate and submit form ', () => {
   test('1st Row Calc and populate form', async () => {
     await page.waitForSelector('table');
     const firstRowText = await page.evaluate(() => Array.from(document.querySelectorAll('[data-test-id="table-row-1"] > [data-test-id*="array-item"]'), element => parseInt(element.textContent.trim(),10)));
-    console.log('!!! 1st Row Answer', BalancePointIndex(firstRowText));
     const correctAnswerRow1 = BalancePointIndex(firstRowText);
     await page.waitFor('input[data-test-id="submit-1"]');
     await page.type('input[data-test-id="submit-1"]', correctAnswerRow1);
-    //await page.$eval('input[data-test-id="submit-1"]', el => el.value = correctAnswerRow1);
   }, 9000000);
 
 
@@ -99,7 +99,6 @@ describe('SUCCESS FLOW: Calc answers, populate and submit form ', () => {
   test('3rd Row Calc and populate form', async () => {
     await page.waitForSelector('table');
     const thirdRowText = await page.evaluate(() => Array.from(document.querySelectorAll('[data-test-id="table-row-3"] > [data-test-id*="array-item"]'), element => parseInt(element.textContent.trim(),10)));
-    console.log('!!! 3rd Row Answer', BalancePointIndex(thirdRowText));
     const correctAnswerRow3 = BalancePointIndex(thirdRowText);
     await page.waitFor('input[data-test-id="submit-3"]');
     await page.type('input[data-test-id="submit-3"]', correctAnswerRow3);
@@ -110,7 +109,7 @@ describe('SUCCESS FLOW: Calc answers, populate and submit form ', () => {
     await page.waitFor('[data-test-id="submit-form"]');
     await page.click(('[data-test-id="submit-form"]'));
     await page.waitFor('[class="dialog"]');
-    const appResponseDialog = await page.$eval('[class="dialog"] > div:first-child > div:first-child > div:first-child > div:first-child', e => e.innerHTML);
+    const appResponseDialog = await page.$eval('[class="dialog"] > div:first-child > div:first-child > div:first-child > div:first-child', e => e.innerHTML); // there should be a better way of construction this selector...
     expect(appResponseDialog).toBe('Congratulations you have succeeded. Please submit your challenge ✅');
     await page.click(('[data-test-id="close-dialog"]'));
   }, 9000000);
