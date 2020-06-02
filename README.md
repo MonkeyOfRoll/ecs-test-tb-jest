@@ -1,9 +1,9 @@
 # ECSD Tech Test - Thom Bowden Jest/Puppeteer version
-This is the basic Jest version of the tests - 
+This is the basic Jest version of the tests - it; 
 - solves the balancing array problem
 - provides simple tests for app load, a negative flow and the submit positive flow
 
-This version does not include automatic start up or tear down of the app as part of the  
+This version does not include automatic start up or tear down of the app as part of the single command or build. 
 This may be able to be achieved via npm or Jest.
 
 I did not fix all the ESLint warnings and errors in the app, nor have I added the definitions for Jest as the peer dependencies for the ESLint modules get themselves out of whack. 
