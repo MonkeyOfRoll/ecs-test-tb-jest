@@ -3,14 +3,31 @@ This is the basic Jest version of the tests - it;
 - solves the balancing array problem
 - provides simple tests for app load, a negative flow and the submit positive flow
 
+### To Do
 This version does not include automatic start up or tear down of the app as part of the single command or build. 
 This may be able to be achieved via npm or Jest.
 
 I did not fix all the ESLint warnings and errors in the app, nor have I added the definitions for Jest as the peer dependencies for the ESLint modules get themselves out of whack. 
 
+##### Tests
+- Docker - this may be important as the environment the tests are running in may have a different version of node that may prevent libraries from loading correctly
+- Automatic start up or tear down of the app as part of the test run
+- CI - i.e. Jenkinsfile
+- object management (this was not done as the objects have limited reuse)
+- convert to typscript -this may make code easier to manage (not done as test aims limited)
+- ESLint - Add Jest plugin without causing peer dependency issues
+ 
+##### App
+
+- The dialog modal is tricky to read, would be good to be ably to test tag the div with the text (equally, this may be a test thing... JQuery may provide a more robust locator strategy)  
+- Correct ESLint Warnings
+
 ## Running the tests
 
 Run either `yarn test` or `npm test`... after starting the app
+
+
+----------------------------------------------------------------------------
 
 ### To run the Local Version of the App
 You will need to have [node] and [yarn] both installed on your machine to run the app.

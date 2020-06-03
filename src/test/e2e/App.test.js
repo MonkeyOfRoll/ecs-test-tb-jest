@@ -90,7 +90,6 @@ describe('SUCCESS FLOW: Calc answers, populate and submit form ', () => {
   test('2nd Row Calc and populate form', async () => {
     await page.waitForSelector('table');
     const secondRowText = await page.evaluate(() => Array.from(document.querySelectorAll('[data-test-id="table-row-2"] > [data-test-id*="array-item"]'), element => parseInt(element.textContent.trim(),10)));
-    console.log('!!! 2nd Row Answer', BalancePointIndex(secondRowText));
     const correctAnswerRow2 = BalancePointIndex(secondRowText);
     await page.waitFor('input[data-test-id="submit-2"]');
     await page.type('input[data-test-id="submit-2"]', correctAnswerRow2);
