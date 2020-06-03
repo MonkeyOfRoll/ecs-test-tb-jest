@@ -24,6 +24,7 @@ I did not fix all the ESLint warnings and errors in the app, nor have I added th
 
 - The dialog modal is tricky to read, would be good to be ably to test tag the div with the text (equally, this may be a test thing... JQuery may provide a more robust locator strategy)  
 - Correct ESLint Warnings
+- GitHub is reporting some security vulnerabilities in the libraries used - these should be updated (along with the version of node in the Dockerfile)
 
 ## Running the tests
 
