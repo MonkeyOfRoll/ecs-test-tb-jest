@@ -3,7 +3,7 @@ This is the basic Jest version of the tests - it;
 - solves the balancing array problem
 - provides simple tests for app load, a negative flow and the submit positive flow
 - the tests currently run in non-headless mode, so that you can see what is going on.
-
+- there was no response from the ECSD-QA-tech-test API, whether populating or not populating the form. Both resulted in an incorrect answer response so could not verify that I succeeded in getting a "you are correct" answer. 
 ### To Do
 Some tasks have not been done yet - I thought it best to ship something useful quickly and iterate in true agile spirit. You may see updates to this repository as I increase scope. This will generally be via a feature branch.
 
@@ -25,7 +25,7 @@ I did not fix all the ESLint warnings and errors in the app, nor have I added th
 - The dialog modal is tricky to read, would be good to be ably to test tag the div with the text (equally, this may be a test thing... JQuery may provide a more robust locator strategy)  
 - Correct ESLint Warnings
 - GitHub is reporting some security vulnerabilities in the libraries used - these should be updated (along with the version of node in the Dockerfile)
-
+- Have an option to Mock the response from ECSD-QA-tech-test 
 ## Running the tests
 
 Run either `yarn test` or `npm test`... after starting the app
