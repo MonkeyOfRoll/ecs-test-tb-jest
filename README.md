@@ -2,8 +2,11 @@
 This is the basic Jest version of the tests - it; 
 - solves the balancing array problem
 - provides simple tests for app load, a negative flow and the submit positive flow
+- the tests currently run in non-headless mode, so that you can see what is going on.
 
 ### To Do
+Some tasks have not been done yet - I thought it best to ship something useful quickly and iterate in true agile spirit. You may see updates to this repository as I increase scope. This will generally be via a feature branch.
+
 This version does not include automatic start up or tear down of the app as part of the single command or build. 
 This may be able to be achieved via npm or Jest.
 
